@@ -1,4 +1,4 @@
-import { API_URL } from "../(home)/page";
+import { API_URL } from "../constants";
 import styles from "../styles/movie-video.module.css"
 
 async function getVideos(id: string) {
@@ -17,7 +17,7 @@ export default async function MovieVideos({id}:{id:string}){
         key={video.key} 
         src={`https://youtube.com/embed/${video.key}`} 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pictuer-in-picture"
-        allowFullScreen="true"
+        allowFullScreen={true}
         title={video.name}
         />
         ))}

@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import { API_URL } from "../../../(home)/page"
 import MovieVideos from "../../../components/movie-videos";
 import MovieInfo, { getMovie } from "../../../components/movie-info";
+import { API_URL } from "../../../constants";
+import { Metadata } from "next"
 
 interface IParams{
     params: {id : string};
@@ -25,7 +26,7 @@ export async function generateMetadata({params:{id}} : IParams){
 // async function getVideos(id: string) {
 //     console.log(`Fetching video: ${Date.now()}`)
 //     await new Promise((resolve)=>setTimeout(resolve, 2000))
-//     const response = await fetch(`${API_URL}/${id}}/videos`);
+// const response = await fetch(`${API_URL}/${id}}/videos`);
 //     return response.json();
 // }
 
