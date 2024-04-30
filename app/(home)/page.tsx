@@ -1,6 +1,8 @@
 // "use client";
 
 import Link from "next/link";
+import Movie from "../components/movie";
+import styles from "../styles/home.module.css"
 
 // import { useEffect, useState } from "react";
 
@@ -34,10 +36,20 @@ export default async function  HomePage (){
     // },[])
     const movies = await getMovies();
     return (
-    <div>
+    <div className={styles.container}>
         {/* {isLoading ? "Loading..." : JSON.stringify(movies)} react 방식 */}
         {/* {JSON.stringify(movies)} */}
-        {movies.map(movie => <li><Link href={`/movies/${movie.id}`}>{movie.title}</Link></li>)}
+
+        {/* {movies.map(movie => <li><Link href={`/movies/${movie.id}`}>{movie.title}</Link></li>)} */}
+        {movies.map(movie => (
+            <Movie 
+            key={movie.id} 
+            id={movie.id} 
+            poster_path={movie.poster_path} 
+            title={movie.title}
+            />
+        ))}
+
         {/* <h1>1. next.js 가 components를 모아 html으로 변환하여 사용자에게 보여준다. (seo 검색 최적화가 되어있다는게 이부분인것같음)</h1>
         <h1>2. 사용자가 페이지 접속시 자바스크립트가 실행되면 next.js는 react가 적용될 수 있도록 스크립트를 실행함</h1>
         <h1>2.5 이때 use client 명령어를 가진 components만 hydrate(interative)됨</h1>

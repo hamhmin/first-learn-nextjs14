@@ -1,3 +1,4 @@
+import "./styles/global.css"
 import Navigation from "./components/navigation"
 
 
@@ -17,7 +18,7 @@ export default function Layout({
   return (
     <html lang="en">
       <body>
-        (Navigation을 Layout에 넣어 모든 페이지에 적용됨. ubms의 common/nav 같은 느낌)
+        {/* (Navigation을 Layout에 넣어 모든 페이지에 적용됨. ubms의 common/nav 같은 느낌) */}
         <Navigation/>
         {children}
         </body>
